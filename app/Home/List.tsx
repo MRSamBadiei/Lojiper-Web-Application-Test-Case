@@ -29,15 +29,33 @@ const AvailableBus: React.FC<{
       {/* Main */}
       <div className="flex items-center p-5">
         <div className="flex justify-between w-3/4">
-          <div>{id}</div>
-          <div>
+          <div className="text-center">
+            <h3 className="font-semibold mb-3">id</h3>
+            <div>{id}</div>
+          </div>
+
+          <div className="text-center">
+            <h3 className="font-semibold mb-3">Departure - Destination</h3>
             {data.DepartureLocation} - {data.Destination}
           </div>
-          <div>{dayjs.unix(data.Date).toISOString().split("T")[0]}</div>
-          <div>{data.Price}₺</div>
-          <div className="flex items-center">
-            <AirlineSeatReclineNormalIcon />
-            {40 - init.length}
+
+          <div className="text-center">
+            <h3 className="font-semibold mb-3">Date</h3>
+            <div>{dayjs.unix(data.Date).toISOString().split("T")[0]}</div>
+          </div>
+
+          <div className="text-center">
+            <h3 className="font-semibold mb-3">Price</h3>
+            <div>{data.Price}₺</div>
+          </div>
+
+          <div className="text-center">
+            <h3 className="font-semibold mb-3">number of available seats</h3>
+
+            <div className="flex items-center justify-center">
+              <AirlineSeatReclineNormalIcon />
+              <span>{40 - init.length}</span>
+            </div>
           </div>
         </div>
         <div className="w-1/4 flex justify-end">

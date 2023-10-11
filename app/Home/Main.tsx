@@ -6,10 +6,9 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/init";
 import { useEffect, useState } from "react";
 import { I_CityRoutes, I_PerosnalInfo } from "../type";
-import cityRoutes from "@/cityRoutes.json";
 
 const Main: React.FC<{ email: string }> = ({ email }) => {
-  const [cityRoute, setCityRoute] = useState<I_CityRoutes[]>(cityRoutes);
+  const [cityRoute, setCityRoute] = useState<I_CityRoutes[]>([]);
   const [userData, setUserData] = useState<{ info: I_PerosnalInfo }>({
     info: {
       fname: "",
@@ -37,6 +36,18 @@ const Main: React.FC<{ email: string }> = ({ email }) => {
   useEffect(() => {
     getUserFromDB();
   }, []);
+
+  const getPath = async () => {
+    const response = await fetch("/api/path");
+
+    const json = await response.json();
+    setCityRoute(json);
+  };
+
+  useEffect(() => {
+    getPath();
+  }, []);
+
   return (
     <div>
       <Header fullName={`${userData.info.fname} ${userData.info.lname}`} />

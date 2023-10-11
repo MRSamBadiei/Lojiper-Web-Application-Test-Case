@@ -24,5 +24,47 @@
       { "seat": 12, "gender": "Female" },
       { "seat": 15, "gender": "Male" }
     ]
+  },
+  {
+    "DepartureLocation": "Izmir",
+    "Destination": "Bursa",
+    "Date": 1697460292,
+    "Price": 300,
+    "Seats": [
+      { "seat": 5, "gender": "Male" },
+      { "seat": 6, "gender": "Female" },
+      { "seat": 23, "gender": "Male" },
+      { "seat": 24, "gender": "Male" },
+      { "seat": 12, "gender": "Female" },
+      { "seat": 15, "gender": "Male" }
+    ]
+  },
+  {
+    "DepartureLocation": "Izmir",
+    "Destination": "Bursa",
+    "Date": 1697460292,
+    "Price": 300,
+    "Seats": [
+      { "seat": 5, "gender": "Male" },
+      { "seat": 6, "gender": "Female" },
+      { "seat": 23, "gender": "Male" },
+      { "seat": 24, "gender": "Male" },
+      { "seat": 12, "gender": "Female" },
+      { "seat": 15, "gender": "Male" }
+    ]
+  },
+  {
+    "DepartureLocation": "Izmir",
+    "Destination": "Bursa",
+    "Date": 1697460292,
+    "Price": 300,
+    "Seats": [
+      { "seat": 5, "gender": "Male" },
+      { "seat": 6, "gender": "Female" },
+      { "seat": 23, "gender": "Male" },
+      { "seat": 24, "gender": "Male" },
+      { "seat": 12, "gender": "Female" },
+      { "seat": 15, "gender": "Male" }
+    ]
   }
 ]
