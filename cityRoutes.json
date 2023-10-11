@@ -1,0 +1,28 @@
+[
+  {
+    "DepartureLocation": "Istanbul",
+    "Destination": "Ankara",
+    "Date": 1697373892,
+    "Price": 200,
+    "Seats": [
+      { "seat": 1, "gender": "Male" },
+      { "seat": 20, "gender": "Female" },
+      { "seat": 13, "gender": "Male" },
+      { "seat": 18, "gender": "Female" }
+    ]
+  },
+  {
+    "DepartureLocation": "Izmir",
+    "Destination": "Bursa",
+    "Date": 1697460292,
+    "Price": 300,
+    "Seats": [
+      { "seat": 5, "gender": "Male" },
+      { "seat": 6, "gender": "Female" },
+      { "seat": 23, "gender": "Male" },
+      { "seat": 24, "gender": "Male" },
+      { "seat": 12, "gender": "Female" },
+      { "seat": 15, "gender": "Male" }
+    ]
+  }
+]

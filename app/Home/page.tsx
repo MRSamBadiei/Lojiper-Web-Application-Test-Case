@@ -1,5 +1,7 @@
 import { getServerSession } from "next-auth";
+import Main from "./Main";
 import { redirect } from "next/navigation";
+
 export default async function Page() {
   const session = await getServerSession();
 
@@ -7,9 +9,7 @@ export default async function Page() {
 
   if (!session) {
     redirect("/SignIn");
-  } else {
-    redirect("/Home");
   }
 
-  return <div className="mt-16"></div>;
+  return <Main email={session.user?.email!} />;
 }
