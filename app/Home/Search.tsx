@@ -3,11 +3,9 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import SearchIcon from "@mui/icons-material/Search";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import dayjs from "dayjs";
-import Alert from "@mui/material/Alert";
 import { I_CityRoutes } from "../type";
-import cityRoutes from "@/cityRoutes.json";
 
 const Search: React.FC<{
   routes: I_CityRoutes[];
@@ -26,31 +24,23 @@ const Search: React.FC<{
       dayjs(searchDate).toISOString().split("T")[0]
     );
 
-    setRoutes((p) => [
-      ...cityRoutes.filter((e) => {
-        return (
-          e.DepartureLocation == departureLocation &&
-          e.Destination == destination &&
-          dayjs.unix(e.Date).toISOString().split("T")[0] ==
-            dayjs(searchDate).toISOString().split("T")[0]
-        );
-      }),
-    ]);
-
     if (departureLocation == "" || destination == "") {
       setShow(true);
     } else {
       setShow(false);
+
+      setRoutes((p) => [
+        ...routes.filter((e) => {
+          return (
+            e.DepartureLocation == departureLocation &&
+            e.Destination == destination &&
+            dayjs.unix(e.Date).toISOString().split("T")[0] ==
+              dayjs(searchDate).toISOString().split("T")[0]
+          );
+        }),
+      ]);
     }
   };
-
-  useEffect(() => {
-    if (departureLocation == "" || destination == "") {
-      setShow(true);
-    } else {
-      setShow(false);
-    }
-  }, [departureLocation, destination]);
 
   return (
     <div>
@@ -110,14 +100,19 @@ const Search: React.FC<{
         </div>
       </section>
       <div className="container mx-auto mt-2">
-        <Alert hidden={!show} variant="filled" severity="warning">
+        <div
+          className={`bg-yellow-600 text-white rounded-md pl-5 py-3 mt-5 ${
+            !show ? "hidden" : "block"
+          }`}
+        >
+          <p>warning</p>
           {departureLocation === "" ? (
             <p>- Departure location field is empty</p>
           ) : (
             ""
           )}
           {destination === "" ? <p>- Destination field is empty</p> : ""}
-        </Alert>
+        </div>
       </div>
     </div>
   );

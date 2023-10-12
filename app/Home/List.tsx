@@ -101,9 +101,10 @@ const List: React.FC<{ gender: "Male" | "Female"; routes: I_CityRoutes[] }> = ({
   return (
     <div className="container mx-auto">
       {routes.length == 0 ? (
-        <Alert className="mt-5" variant="filled" severity="warning">
-          No available bus found
-        </Alert>
+        <div className={`bg-yellow-600 text-white rounded-md pl-5 py-3 mt-5`}>
+          <p>warning</p>
+          <p>- No available bus found</p>
+        </div>
       ) : (
         <></>
       )}

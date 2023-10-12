@@ -299,14 +299,16 @@ const ContactInfo: React.FC<{
             minLength={6}
           />
         </div>
-        <Alert
-          hidden={!showErrorLength}
-          className="mt-5"
-          variant="filled"
-          severity="error"
+
+        <div
+          className={`bg-red-500 text-white rounded-md py-3 mt-5 ${
+            !showErrorLength ? "hidden" : "block"
+          }`}
         >
-          Password should be at least 6 characters long
-        </Alert>
+          <p className="text-center">
+            Password should be at least 6 characters long
+          </p>
+        </div>
       </div>
 
       <div className="mt-5">
@@ -331,24 +333,23 @@ const ContactInfo: React.FC<{
             minLength={6}
           />
         </div>
-        <Alert
-          hidden={!showErrorConfirm}
-          className="mt-5"
-          variant="filled"
-          severity="error"
+
+        <div
+          className={`bg-red-500 text-white rounded-md py-3 mt-5 ${
+            !showErrorConfirm ? "hidden" : "block"
+          }`}
         >
-          The passwords you entered do not match
-        </Alert>
+          <p className="text-center">The passwords you entered do not match</p>
+        </div>
       </div>
 
-      <Alert
-        hidden={!showError}
-        className="mt-5"
-        variant="filled"
-        severity="error"
+      <div
+        className={`bg-red-500 text-white rounded-md py-3 mt-5 ${
+          !showError ? "hidden" : "block"
+        }`}
       >
-        Email is already exists
-      </Alert>
+        <p className="text-center">Email is already exists</p>
+      </div>
 
       <div className="mt-7">
         <button
