@@ -18,6 +18,8 @@ export default function Page() {
     const docRef = doc(db, "Users", email);
     const docSnap = await getDoc(docRef);
 
+    console.log("check", db);
+
     if (docSnap.exists()) {
       setExist(true);
     } else {
@@ -91,13 +93,17 @@ export default function Page() {
 
             <div>
               <button
-                onClick={() =>
+                onClick={(e) => {
+                  e.preventDefault();
+
                   signIn("credentials", {
                     email,
                     password,
                     redirect: false,
                   })
                     .then((e) => {
+                      console.log(e);
+
                       if (!e?.ok) {
                         emailExists();
 
@@ -112,8 +118,8 @@ export default function Page() {
                     })
                     .catch((er) => {
                       console.log(er);
-                    })
-                }
+                    });
+                }}
                 disabled={!email || !password}
                 className="flex w-full justify-center rounded-md disabled:bg-indigo-300 bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >

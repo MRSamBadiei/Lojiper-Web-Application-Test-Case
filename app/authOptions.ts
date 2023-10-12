@@ -11,6 +11,8 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {},
       async authorize(credentials, req): Promise<any> {
+        console.log(credentials);
+
         console.log("cred:", credentials);
 
         return await signInWithEmailAndPassword(
@@ -19,7 +21,7 @@ export const authOptions: NextAuthOptions = {
           (credentials as any).password || ""
         )
           .then((user) => {
-            //console.log(user);
+            console.log(user);
 
             if (user) {
               return user.user;
@@ -28,7 +30,7 @@ export const authOptions: NextAuthOptions = {
             return null;
           })
           .catch((e) => {
-            return null;
+            console.log(e);
           });
       },
     }),

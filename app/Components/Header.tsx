@@ -9,7 +9,7 @@ const Header: React.FC<{ fullName: string }> = ({ fullName }) => {
           <div className="uppercase font-bold text-2xl">sb travel</div>
           <div className="flex items-center">
             <p className="mr-5">
-              {fullName !== "" ? "Welcome" + fullName : ""}
+              {fullName !== "" ? "Welcome " + fullName : ""}
             </p>
             <button className="border rounded-md p-2" onClick={() => signOut()}>
               Sign out

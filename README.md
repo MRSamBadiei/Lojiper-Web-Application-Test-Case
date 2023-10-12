@@ -5,6 +5,8 @@ Bus ticket sales application with certain basic features.
 # Installation
 
 ```bash
+// make sure npm and node are lastest version
+
 git clone https://github.com/MRSamBadiei/Lojiper-Web-Application-Test-Case.git
 cd Lojiper-Web-Application-Test-Case
 npm i
