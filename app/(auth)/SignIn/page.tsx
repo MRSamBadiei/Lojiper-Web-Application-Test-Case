@@ -1,7 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Alert from "@mui/material/Alert";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/app/firebase/init";
@@ -26,6 +26,8 @@ export default function Page() {
       setExist(false);
     }
   };
+
+  useEffect(() => {}, [error, exits]);
 
   return (
     <>
@@ -87,14 +89,15 @@ export default function Page() {
               </div>
             </div>
 
-            <Alert
-              className={`${!error ? "hidden" : "flex"}`}
-              variant="filled"
-              severity="error"
+            <div
+              className={`bg-red-500 text-white rounded-md py-3 ${
+                !error ? "hidden" : "block"
+              }`}
             >
-              You have entered an invalid email or password
-            </Alert>
-
+              <p className="text-center">
+                You have entered an invalid email or password
+              </p>
+            </div>
             <div>
               <button
                 onClick={(e) => {
