@@ -87,7 +87,11 @@ export default function Page() {
               </div>
             </div>
 
-            <Alert hidden={!error} variant="filled" severity="error">
+            <Alert
+              className={`${!error ? "hidden" : "flex"}`}
+              variant="filled"
+              severity="error"
+            >
               You have entered an invalid email or password
             </Alert>
 
