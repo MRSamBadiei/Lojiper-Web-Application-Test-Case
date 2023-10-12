@@ -63,6 +63,8 @@ const Search: React.FC<{
               { label: "Ankara", id: 2 },
               { label: "Izmir", id: 3 },
               { label: "Bursa", id: 4 },
+              { label: "Adana", id: 5 },
+              { label: "Samsun", id: 6 },
             ]}
             sx={{ width: 300 }}
             renderInput={(params) => (
@@ -78,6 +80,8 @@ const Search: React.FC<{
               { label: "Ankara", id: 2 },
               { label: "Izmir", id: 3 },
               { label: "Bursa", id: 4 },
+              { label: "Adana", id: 5 },
+              { label: "Samsun", id: 6 },
             ]}
             sx={{ width: 300 }}
             renderInput={(params) => (
@@ -102,11 +106,11 @@ const Search: React.FC<{
       </div>
       <Alert hidden={!show} variant="filled" severity="warning">
         {departureLocation === "" ? (
-          <p>Departure location field is empty</p>
+          <p>- Departure location field is empty</p>
         ) : (
           ""
         )}
-        {destination === "" ? <p>destination field is empty</p> : ""}
+        {destination === "" ? <p>- Destination field is empty</p> : ""}
       </Alert>
     </section>
   );

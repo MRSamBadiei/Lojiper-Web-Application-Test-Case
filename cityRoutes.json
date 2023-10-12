@@ -3,7 +3,7 @@
     "DepartureLocation": "Istanbul",
     "Destination": "Ankara",
     "Date": 1697373892,
-    "Price": 200,
+    "Price": 170,
     "Seats": [
       { "seat": 1, "gender": "Male" },
       { "seat": 20, "gender": "Female" },
@@ -18,7 +18,7 @@
     "Price": 300,
     "Seats": [
       { "seat": 5, "gender": "Male" },
-      { "seat": 6, "gender": "Female" },
+      { "seat": 6, "gender": "Male" },
       { "seat": 23, "gender": "Male" },
       { "seat": 24, "gender": "Male" },
       { "seat": 12, "gender": "Female" },
@@ -26,45 +26,26 @@
     ]
   },
   {
-    "DepartureLocation": "Izmir",
+    "DepartureLocation": "Samsun",
     "Destination": "Bursa",
-    "Date": 1697460292,
-    "Price": 300,
-    "Seats": [
-      { "seat": 5, "gender": "Male" },
-      { "seat": 6, "gender": "Female" },
-      { "seat": 23, "gender": "Male" },
-      { "seat": 24, "gender": "Male" },
-      { "seat": 12, "gender": "Female" },
-      { "seat": 15, "gender": "Male" }
-    ]
+    "Date": 1697622925,
+    "Price": 250,
+    "Seats": [{ "seat": 3, "gender": "Male" }]
   },
   {
     "DepartureLocation": "Izmir",
-    "Destination": "Bursa",
-    "Date": 1697460292,
-    "Price": 300,
+    "Destination": "Adana",
+    "Date": 1698054925,
+    "Price": 100,
     "Seats": [
       { "seat": 5, "gender": "Male" },
       { "seat": 6, "gender": "Female" },
-      { "seat": 23, "gender": "Male" },
-      { "seat": 24, "gender": "Male" },
+      { "seat": 14, "gender": "Male" },
+      { "seat": 15, "gender": "Male" },
       { "seat": 12, "gender": "Female" },
-      { "seat": 15, "gender": "Male" }
-    ]
-  },
-  {
-    "DepartureLocation": "Izmir",
-    "Destination": "Bursa",
-    "Date": 1697460292,
-    "Price": 300,
-    "Seats": [
-      { "seat": 5, "gender": "Male" },
-      { "seat": 6, "gender": "Female" },
-      { "seat": 23, "gender": "Male" },
-      { "seat": 24, "gender": "Male" },
-      { "seat": 12, "gender": "Female" },
-      { "seat": 15, "gender": "Male" }
+      { "seat": 18, "gender": "Male" },
+      { "seat": 20, "gender": "Male" },
+      { "seat": 21, "gender": "Male" }
     ]
   }
 ]

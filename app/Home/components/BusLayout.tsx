@@ -2,15 +2,82 @@
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { I_Init } from "@/app/type";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import SeatIcon from "./SeatIcon";
+import { setData } from "@/app/features/data/userSelection";
+import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/app/features/hook";
+
+const Wheel = () => {
+  return (
+    <svg
+      width="100"
+      height="200"
+      viewBox="0 0 299 621"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="mt-6"
+    >
+      <path
+        d="M136.5 532.5V434.5L146 431.5C156.008 463.874 167.931 472.646 199.5 473V490.5C165.865 493.591 154.128 503.157 146 534.5L136.5 532.5Z"
+        stroke="#5E5E5E"
+      />
+      <path
+        d="M257 359V492.5L221 620C221 620 168.467 616.188 130 611.5M4.99995 492.5V531C9.02826 570.993 25.8685 590.629 130 611.5M4.99995 492.5C-0.323782 352.692 -0.436916 274.308 4.99995 134.5M4.99995 492.5L44.5 504.5M4.99995 134.5C3.24621 62.0256 22.9679 33.1171 122.5 18M4.99995 134.5L44.5 122.5M122.5 18V36.5C65.8809 40.7338 47.5206 58.125 44.5 122.5M122.5 18L298.5 1.5V8.5L276 31.5L221 34M44.5 122.5C37.0405 272.64 37.7366 356.189 44.5 504.5M44.5 504.5C49.4283 568.639 66.3859 587.809 122.5 591.5C122.5 591.5 118.5 606 130 611.5M221 34L219 14M221 34L151 38.5L144.5 18"
+        stroke="black"
+      />
+      <path
+        d="M200 483.5C200 511.97 177.587 535 150 535C122.413 535 100 511.97 100 483.5C100 455.03 122.413 432 150 432C177.587 432 200 455.03 200 483.5Z"
+        stroke="#5E5E5E"
+        strokeWidth="2"
+      />
+      <path
+        d="M210.4 484C210.4 518.269 183.42 546 150.2 546C116.98 546 90 518.269 90 484C90 449.731 116.98 422 150.2 422C183.42 422 210.4 449.731 210.4 484Z"
+        stroke="#5E5E5E"
+        strokeWidth="2"
+      />
+      <circle cx="154" cy="484" r="7.5" stroke="#5E5E5E" />
+    </svg>
+  );
+};
 
 const BusLayout: React.FC<{
+  departureLocation: string;
+  destination: string;
+  date: number;
   gender: "Male" | "Female";
   init: I_Init[];
   price: number;
   setInit: Dispatch<SetStateAction<I_Init[]>>;
-}> = ({ init, setInit, gender, price }) => {
+}> = ({
+  init,
+  setInit,
+  gender,
+  price,
+  departureLocation,
+  date,
+  destination,
+}) => {
+  const dispatch = useAppDispatch();
+
+  const router = useRouter();
+
+  const setAndPay = () => {
+    dispatch(
+      setData({
+        DepartureLocation: departureLocation,
+        Date: date,
+        Destination: destination,
+        price: init.filter((e) => e.state === "Selected").length * price,
+        seats: [
+          ...init.filter((e) => e.state === "Selected").map((e) => e.seat),
+        ] as unknown[] as number[],
+      })
+    );
+
+    router.push("/Payment");
+  };
+
   const addToList = (l: number, seatNumber: number) => {
     const selected = init.filter((p) => p.state === "Selected");
 
@@ -141,6 +208,9 @@ const BusLayout: React.FC<{
         <div className="flex">
           <div className="w-8/12 flex flex-col">
             <div className="flex justify-center items-center mx-auto relative z-0">
+              <div className="self-end mb-5 mr-5">
+                <Wheel />
+              </div>
               <div className="flex flex-col z-10 relative">
                 <EachSeat nums={[4, 8, 12, 16, 20]} />
                 <EachSeat nums={[3, 7, 11, 15, 19]} />
@@ -244,6 +314,7 @@ const BusLayout: React.FC<{
             </div>
 
             <button
+              onClick={setAndPay}
               disabled={init.filter((p) => p.state === "Selected").length === 0}
               className="uppercase disabled:bg-lime-200 bg-lime-500 py-2 px-4 text-white rounded-md"
             >

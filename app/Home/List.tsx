@@ -75,6 +75,9 @@ const AvailableBus: React.FC<{
           gender={gender}
           init={init}
           setInit={setInit}
+          departureLocation={data.DepartureLocation}
+          destination={data.Destination}
+          date={data.Date}
         />
       ) : (
         <></>

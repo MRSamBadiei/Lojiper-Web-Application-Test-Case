@@ -1,8 +1,9 @@
 "use client";
-import { SessionProvider as Provider } from "next-auth/react";
+import { SessionProvider as MyProvider } from "next-auth/react";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
+import { Provider } from "react-redux";
+import store from "./features/store";
 type Props = {
   children?: React.ReactNode;
 };
@@ -10,7 +11,9 @@ type Props = {
 export default function SessionProvider({ children }: Props) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Provider>{children}</Provider>
+      <Provider store={store}>
+        <MyProvider>{children}</MyProvider>
+      </Provider>
     </LocalizationProvider>
   );
 }

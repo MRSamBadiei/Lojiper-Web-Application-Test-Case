@@ -51,6 +51,14 @@ interface I_CityRoutes {
   }[];
 }
 
+interface I_SETDATA {
+  price: number;
+  seats: number[];
+  DepartureLocation: string;
+  Destination: string;
+  Date: number;
+}
+
 export type {
   I_Init,
   I_SeatIcon,
@@ -58,4 +66,5 @@ export type {
   I_ContactInfo,
   I_PerosnalInfo,
   I_CityRoutes,
+  I_SETDATA,
 };

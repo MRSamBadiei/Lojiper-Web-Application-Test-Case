@@ -17,6 +17,7 @@ npm run dev
 **Database:** Firebase (10.4.0)\
 **Language:** Typescript (5)\
 **Authentication:** Next-auth (4.23.2)\
+**State manager:** Redux-Toolkit (1.9.7)\
 **API:** Static Context API & Next Route API
 
 ## API Reference
@@ -53,20 +54,6 @@ npm run dev
   ....
 ]
 ```
-
-#### Users
-
-```http
-  GET /api/items/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
 
 ### Sign IN Page
 
@@ -142,3 +129,20 @@ Takes two numbers and returns the sum.
 - As the user makes seat selections, the fare field will be updated and displayed. The same When you cancel in the same way, the fee field will be updated.
 
 - The Continue button will redirect to the payment page.
+
+## Payment Page
+
+![Ticket](https://firebasestorage.googleapis.com/v0/b/bus-ticket-d6b60.appspot.com/o/Screenshot%202023-10-12%20at%2012.43%201.jpg?alt=media&token=18dded7d-0962-4739-ab2b-2c94dc40ef64&_gl=1*13bllq1*_ga*NDM2MTkxODA1LjE2OTYxNzAxNDI.*_ga_CW55HF8NVT*MTY5NzEwMzgwMi4xNS4xLjE2OTcxMDM4NjUuNjAuMC4w)
+
+- On this page there will be a payment form and user fills it out and confirms it
+- the trip information is also displayed
+
+![Ticket](https://firebasestorage.googleapis.com/v0/b/bus-ticket-d6b60.appspot.com/o/Screenshot%202023-10-12%20at%2012.44%201.jpg?alt=media&token=5f0f314f-26da-46dc-9ccb-21031449cfa4&_gl=1*rs08i1*_ga*NDM2MTkxODA1LjE2OTYxNzAxNDI.*_ga_CW55HF8NVT*MTY5NzEwMzgwMi4xNS4xLjE2OTcxMDQwNjQuNjAuMC4w)
+
+- If the payment is successful, a button to return to the homepage and a payment successful message will appear.
+
+## Author
+
+- [Sam Badiei](https://github.com/MRSamBadiei)
+  - [Github](https://github.com/MRSamBadiei)
+  - [Linkedin](https://www.linkedin.com/in/sam-badiei/)
